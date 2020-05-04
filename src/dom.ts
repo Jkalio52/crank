@@ -3,6 +3,7 @@ import {
 	Default,
 	Environment,
 	Intrinsic,
+	IntrinsicProps,
 	Props,
 	Raw,
 	Renderer,
@@ -14,10 +15,7 @@ declare module "./index" {
 }
 
 // TODO: create an allowlist/blocklist of props
-type AnyProps = Props & {
-	[name: string]: any;
-};
-function updateProps(el: Element, props: AnyProps, newProps: AnyProps): void {
+function updateProps(el: Element, props: IntrinsicProps, newProps: IntrinsicProps): void {
 	for (const name in {...props, ...newProps}) {
 		const value = props[name];
 		const newValue = newProps[name];
